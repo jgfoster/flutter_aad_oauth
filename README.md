@@ -19,7 +19,7 @@ final Config config = new Config(
   "YOUR CLIENT ID",
   "openid profile offline_access",
   "your redirect url available in azure portal");
-final AadOAuth oauth = new AadOAuth(config);
+final FlutterAadOauth oauth = new FlutterAadOauth(config);
 ```
 
 This allows you to pass in an tenant ID, client ID, scope and redirect url.
