@@ -84,7 +84,7 @@ class FlutterAadOauth {
   }
 
   Future<bool> tokenIsValid({refreshIfNot = true}) async {
-    if (_token == null) _token = await _authStorage?.loadTokenToCache();
+    if (_token == null) _token = await _authStorage?.readTokenFromCache();
     if (Token.tokenIsValid(_token)) return true;
     if (refreshIfNot) {
       await _performRefreshAuthFlow();
@@ -103,7 +103,7 @@ class FlutterAadOauth {
 
   Future<void> _performAuthorization() async {
     // load token from cache
-    _token = await _authStorage?.loadTokenToCache();
+    _token = await _authStorage?.readTokenFromCache();
 
     //still have refreh token / try to get new access token with refresh token
     if (_token != null)
